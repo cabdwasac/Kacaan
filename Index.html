@@ -1,0 +1,795 @@
+
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082b59">
+<meta name="description" content="KACAAN – Madal aqooneed, falanqayn siyaasadeed, taariikh iyo korinta garaadka bulshada.">
+<title>KACAAN | Aqoon iyo Falanqayn</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --blue:#0755a4;
+ --dark:#082b59;
+ --light:#edf5ff;
+ --gold:#e6ae45;
+ --text:#17263b;
+ --muted:#69788b;
+ --white:#fff;
+}
+body{
+ font-family:Arial,sans-serif;
+ background:#f5f7fb;
+ color:var(--text);
+ line-height:1.7;
+}
+button,input,textarea,select{font:inherit}
+a{text-decoration:none;color:inherit}
+.container{width:92%;max-width:1150px;margin:auto}
+
+/* HEADER */
+header{
+ background:var(--dark);
+ color:white;
+ position:sticky;
+ top:0;
+ z-index:100;
+ box-shadow:0 3px 15px #001a3730;
+}
+.topbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:15px 0;
+}
+.logo{
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+.logo-icon{
+ background:#1677e8;
+ color:white;
+ width:46px;
+ height:46px;
+ display:grid;
+ place-items:center;
+ border-radius:12px;
+ font-size:29px;
+ font-weight:bold;
+}
+.logo h1{font-size:27px;letter-spacing:3px}
+.logo small{display:block;font-size:10px;color:#b9d7f8;letter-spacing:1px}
+nav{display:flex;gap:22px;align-items:center}
+nav a{font-size:13px;color:#e3edfa}
+nav a:hover{color:var(--gold)}
+.menu-btn{
+ display:none;
+ background:#17477c;
+ border:0;color:white;
+ padding:8px 13px;border-radius:7px;
+ font-size:20px;
+}
+
+/* HERO */
+.hero{
+ background:linear-gradient(120deg,#071e40,#0755a4);
+ color:white;
+ padding:75px 0;
+ position:relative;
+ overflow:hidden;
+}
+.hero:after{
+ content:"K";
+ position:absolute;
+ right:7%;
+ top:-90px;
+ font-size:350px;
+ font-weight:bold;
+ color:#ffffff0a;
+}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-tag{color:#f0bd60;font-size:13px;letter-spacing:2px;font-weight:bold}
+.hero h2{font-size:42px;line-height:1.3;margin:15px 0}
+.hero p{color:#d4e5fa;font-size:17px;max-width:650px}
+.hero-buttons{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
+.btn{
+ border:0;padding:12px 22px;
+ border-radius:7px;cursor:pointer;
+ font-weight:bold;
+}
+.btn-gold{background:var(--gold);color:#102b4b}
+.btn-outline{border:1px solid #ffffff80;color:white;background:transparent}
+
+/* TICKER */
+.ticker{
+ background:#fff;
+ border-bottom:1px solid #e3eaf2;
+ padding:12px 0;
+ font-size:13px;
+}
+.ticker strong{color:var(--blue);margin-right:12px}
+
+/* SECTIONS */
+section{padding:48px 0}
+.section-heading{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:23px;
+ gap:10px;
+}
+.section-heading h2{font-size:24px;color:var(--dark)}
+.section-heading span{color:var(--blue);font-size:13px;font-weight:bold}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:22px;
+}
+.card{
+ background:white;
+ border-radius:12px;
+ overflow:hidden;
+ border:1px solid #e6ebf2;
+ transition:.25s;
+ box-shadow:0 3px 12px #001b3710;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 25px #001b3720}
+.card-img{
+ width:100%;height:190px;
+ object-fit:cover;
+ background:#dce9f8;
+}
+.card-body{padding:18px}
+.category{
+ display:inline-block;
+ color:#0755a4;
+ background:#e8f2ff;
+ padding:4px 10px;
+ border-radius:30px;
+ font-size:11px;
+ font-weight:bold;
+}
+.card h3{font-size:18px;line-height:1.5;margin:12px 0}
+.card p{font-size:13px;color:var(--muted)}
+.meta{font-size:11px;color:#8794a4;margin-top:14px}
+.read-more{
+ display:inline-block;
+ margin-top:13px;
+ color:var(--blue);
+ font-weight:bold;
+ font-size:13px;
+ cursor:pointer;
+}
+
+/* FEATURED */
+.featured{
+ display:grid;
+ grid-template-columns:1.3fr 1fr;
+ background:white;
+ border-radius:14px;
+ overflow:hidden;
+ border:1px solid #e3eaf2;
+}
+.featured img{width:100%;height:100%;min-height:300px;object-fit:cover}
+.featured-text{padding:30px}
+.featured-text h2{font-size:27px;margin:14px 0}
+.featured-text p{color:var(--muted)}
+
+/* SEARCH */
+.search-box{display:flex;gap:8px;max-width:450px}
+.search-box input{
+ width:100%;padding:12px;
+ border:1px solid #d7e0eb;
+ border-radius:7px;outline:none;
+}
+.search-box button{background:var(--blue);color:white}
+
+/* CATEGORIES */
+.categories{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:12px;
+}
+.cat{
+ background:white;
+ padding:20px 10px;
+ border-radius:10px;
+ text-align:center;
+ border:1px solid #e4eaf2;
+ cursor:pointer;
+ color:var(--dark);
+ font-weight:bold;
+ font-size:13px;
+}
+.cat:hover,.cat.active{background:var(--blue);color:white}
+
+/* ARTICLE */
+#articlePage{display:none;background:white;min-height:70vh}
+.article-content{max-width:800px;margin:auto;padding:40px 0}
+.article-content h1{font-size:35px;line-height:1.4;color:var(--dark);margin:15px 0}
+.article-content img{width:100%;max-height:430px;object-fit:cover;border-radius:12px;margin:20px 0}
+.article-body{font-size:17px;line-height:2;white-space:pre-wrap}
+.back-btn{color:var(--blue);cursor:pointer;font-weight:bold}
+
+/* ADMIN */
+#adminPage{display:none}
+.admin-box{
+ max-width:750px;margin:auto;
+ background:white;padding:25px;
+ border-radius:12px;border:1px solid #e2e8f0;
+}
+.admin-box h2{color:var(--dark);margin-bottom:20px}
+.field{margin-bottom:15px}
+.field label{display:block;font-weight:bold;font-size:13px;margin-bottom:6px}
+.field input,.field textarea,.field select{
+ width:100%;padding:12px;
+ border:1px solid #d7e0eb;border-radius:7px;
+ outline:none;
+}
+.field textarea{min-height:180px;resize:vertical}
+.admin-btn{background:var(--blue);color:white;width:100%}
+.danger{background:#bd3030;color:white}
+
+/* FOOTER */
+footer{background:#071e40;color:white;padding:40px 0 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+footer p,footer a{font-size:13px;color:#b9cce4}
+footer h3{margin-bottom:12px}
+.footer-bottom{border-top:1px solid #ffffff20;margin-top:25px;padding-top:17px;text-align:center;color:#9db5d2;font-size:12px}
+
+.empty{text-align:center;padding:35px;color:var(--muted);grid-column:1/-1}
+.hidden{display:none!important}
+
+@media(max-width:750px){
+ .menu-btn{display:block}
+ nav{
+ display:none;position:absolute;top:75px;left:0;
+ width:100%;background:#082b59;
+ padding:20px;flex-direction:column;align-items:flex-start;
+ }
+ nav.show{display:flex}
+ .hero{padding:55px 0}
+ .hero h2{font-size:31px}
+ .grid{grid-template-columns:1fr 1fr;gap:12px}
+ .card-img{height:140px}
+ .card-body{padding:12px}
+ .card h3{font-size:15px}
+ .featured{grid-template-columns:1fr}
+ .featured img{height:220px}
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .footer-grid{grid-template-columns:1fr}
+ .article-content{padding:25px 0}
+ .article-content h1{font-size:27px}
+}
+@media(max-width:390px){
+ .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="container topbar">
+  <a href="#" class="logo" onclick="home();return false">
+   <div class="logo-icon">K</div>
+   <div>
+    <h1>KACAAN</h1>
+    <small>AQOON • FALANQAYN • TAARIIKH</small>
+   </div>
+  </a>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <nav id="navigation">
+   <a href="#" onclick="home()">Bogga Hore</a>
+   <a href="#categories" onclick="home()">Qaybaha</a>
+   <a href="#articles" onclick="home()">Maqaallada</a>
+   <a href="#about" onclick="home()">Nagu Saabsan</a>
+   <a href="#" onclick="showAdmin()">Admin</a>
+  </nav>
+ </div>
+</header>
+
+<div id="homePage">
+
+<div class="hero">
+ <div class="container hero-content">
+  <div class="hero-tag">KACAAN • MADAL AQOONEED</div>
+  <h2>Fikirka wanaagsan waa bilowga isbeddelka bulshada.</h2>
+  <p>
+   Ku soo dhawoow KACAAN. Waa madal loogu talagalay
+   korinta garaadka bulshada, falanqaynta siyaasadda,
+   fahamka taariikhda iyo la socodka arrimaha dunida.
+  </p>
+  <div class="hero-buttons">
+   <button class="btn btn-gold" onclick="document.getElementById('articles').scrollIntoView()">Akhri Maqaallada</button>
+   <button class="btn btn-outline" onclick="document.getElementById('about').scrollIntoView()">Wax badan naga ogow</button>
+  </div>
+ </div>
+</div>
+
+<div class="ticker">
+ <div class="container">
+  <strong>KACAAN |</strong>
+  Aqoon kororsi • Fikir madax-bannaan • Falanqayn qoto dheer
+ </div>
+</div>
+
+<main class="container">
+
+<section id="categories">
+ <div class="section-heading">
+  <h2>Qaybaha KACAAN</h2>
+  <span>DOORO QAYBTA</span>
+ </div>
+ <div class="categories">
+  <div class="cat active" onclick="filterCategory('Dhammaan',this)">Dhammaan</div>
+  <div class="cat" onclick="filterCategory('Garaadka Bulshada',this)">Garaadka Bulshada</div>
+  <div class="cat" onclick="filterCategory('Soomaaliya',this)">Soomaaliya</div>
+  <div class="cat" onclick="filterCategory('Geeska Afrika',this)">Geeska Afrika</div>
+  <div class="cat" onclick="filterCategory('Caalamka',this)">Caalamka</div>
+  <div class="cat" onclick="filterCategory('Taariikh',this)">Taariikh</div>
+ </div>
+</section>
+
+<section id="featuredSection">
+ <div class="section-heading">
+  <h2>Maqaalka Muuqda</h2>
+  <span>EDITOR'S CHOICE</span>
+ </div>
+ <div id="featured"></div>
+</section>
+
+<section id="articles">
+ <div class="section-heading">
+  <h2>Maqaalladii Ugu Dambeeyey</h2>
+  <span>AKHRISO OO FAAHFAAHI</span>
+ </div>
+ <div class="search-box">
+  <input id="searchInput" placeholder="Raadi maqaal..." oninput="renderArticles()">
+  <button class="btn" onclick="renderArticles()">Raadi</button>
+ </div>
+ <div style="height:20px"></div>
+ <div class="grid" id="articleGrid"></div>
+</section>
+
+<section id="about">
+ <div class="featured">
+  <div class="featured-text">
+   <span class="category">KU SAABSAN KACAAN</span>
+   <h2>Maxay tahay KACAAN?</h2>
+   <p>
+    KACAAN waa madal aqooneed oo u taagan kobcinta
+    garaadka bulshada iyo dhiirrigelinta fikirka
+    madaxbannaan.
+    <br><br>
+    Waxaan diiradda saaraynaa siyaasadda Soomaaliya,
+    Geeska Afrika iyo caalamka, taariikhda iyo
+    arrimaha bulshada.
+    <br><br>
+    Himiladeennu waa bulsho wax akhrida, wax fahanta,
+    wax falanqaysa, kana qayb qaadata dhismaha mustaqbal
+    wanaagsan.
+   </p>
+  </div>
+  <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900" alt="Aqoon iyo qoraal">
+ </div>
+</section>
+
+</main>
+</div>
+
+<!-- ARTICLE READER -->
+<div id="articlePage">
+ <div class="container article-content">
+  <div class="back-btn" onclick="home()">← Ku noqo bogga hore</div>
+  <div id="articleDetail"></div>
+ </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPage">
+ <section class="container">
+  <div class="admin-box">
+   <h2>Qaybta Maamulka KACAAN</h2>
+   <div id="loginArea">
+    <p style="margin-bottom:15px">Geli erayga sirta ah si aad maqaallo u maamusho.</p>
+    <div class="field">
+     <label>Admin Password</label>
+     <input type="password" id="adminPassword" placeholder="Erayga sirta ah">
+    </div>
+    <button class="btn admin-btn" onclick="login()">Gal maamulka</button>
+   </div>
+
+   <div id="editorArea" class="hidden">
+    <h3>Daabac Maqaal Cusub</h3>
+    <div class="field">
+     <label>Cinwaanka maqaalka</label>
+     <input id="postTitle" placeholder="Cinwaanka maqaalka">
+    </div>
+    <div class="field">
+     <label>Qaybta</label>
+     <select id="postCategory">
+      <option>Garaadka Bulshada</option>
+      <option>Soomaaliya</option>
+      <option>Geeska Afrika</option>
+      <option>Caalamka</option>
+      <option>Taariikh</option>
+     </select>
+    </div>
+    <div class="field">
+     <label>Linkiga sawirka (ikhtiyaari)</label>
+     <input id="postImage" placeholder="https://example.com/image.jpg">
+    </div>
+    <div class="field">
+     <label>Hordhaca maqaalka</label>
+     <textarea id="postSummary" style="min-height:85px" placeholder="Qor dulmar kooban..."></textarea>
+    </div>
+    <div class="field">
+     <label>Qoraalka maqaalka</label>
+     <textarea id="postContent" placeholder="Halkan ku qor maqaalkaaga oo dhamaystiran..."></textarea>
+    </div>
+    <button class="btn admin-btn" onclick="publishArticle()">Daabac Maqaalka</button>
+    <div style="height:15px"></div>
+    <button class="btn danger" onclick="logout()">Ka bax maamulka</button>
+    <h3 style="margin-top:25px">Maqaalladaada</h3>
+    <div id="manageList"></div>
+   </div>
+  </div>
+ </section>
+</div>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <div class="logo">
+     <div class="logo-icon">K</div>
+     <h1>KACAAN</h1>
+    </div>
+    <p style="margin-top:15px">
+     Madal aqooneed, falanqayn siyaasadeed iyo
+     taariikh. Fikirka ayaa dhisa bulshada.
+    </p>
+   </div>
+   <div>
+    <h3>Qaybaha</h3>
+    <p>Soomaaliya</p>
+    <p>Geeska Afrika</p>
+    <p>Caalamka</p>
+    <p>Taariikh</p>
+   </div>
+   <div>
+    <h3>Nala Soco</h3>
+    <p>Facebook</p>
+    <p>Telegram</p>
+    <p>Email: kacaan@example.com</p>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   © 2026 KACAAN. Xuquuqda oo dhan way dhowran tahay.
+   <br>Fikirka ayaa dhisa bulshada.
+  </div>
+ </div>
+</footer>
+
+<script>
+// KACAAN WEBSITE JAVASCRIPT
+
+const ADMIN_PASSWORD = "Kacaan2026";
+
+// Kaydinta maqaallada
+let articles = JSON.parse(localStorage.getItem("kacaan_articles") || "[]");
+
+let selectedCategory = "Dhammaan";
+
+// Maqaallo tusaale ah
+const defaultArticles = [
+{
+ id:1,
+ title:"Maxaa lagu gartaa bulsho garaad ahaan horumartay?",
+ category:"Garaadka Bulshada",
+ summary:"Fahamka aqoonta, akhriska iyo fikirka madaxbannaan ayaa saldhig u ah horumarka bulshada.",
+ content:"Bulsho horumartay laguma cabbiro oo keliya dhismayaasha iyo dhaqaalaha. Waxaa sidoo kale lagu cabbiraa heerka aqoonta, awoodda fikirka iyo fahamka dadka.\\n\\nAkhriska iyo waxbarashadu waxay bulshada siinayaan awood ay ku qiimayso xaaladdeeda, ku fahanto dhibaatooyinkeeda, kuna raadiso xalal waara.\\n\\nBulsho fikirta waa bulsho awood u leh inay mustaqbalkeeda dhisato.",
+ image:"https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=900",
+ date:"21 November 2026"
+},
+{
+ id:2,
+ title:"Soomaaliya: Siyaasad iyo mustaqbal",
+ category:"Soomaaliya",
+ summary:"Dhismaha dowladnimada iyo doorka muwaadinka ee mustaqbalka Soomaaliya.",
+ content:"Dowladnimadu ma aha oo keliya hay'adaha dowladda. Waa heshiis bulsho, sharci, isla xisaabtan iyo kalsooni.\\n\\nMuwaadinku wuxuu door muhiim ah ku leeyahay dhismaha dowladnimada, isagoo fahmaya xuquuqdiisa iyo waajibaadkiisa.",
+ image:"https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=900",
+ date:"21 November 2026"
+},
+{
+ id:3,
+ title:"Geeska Afrika iyo muhiimadda juqraafiyeed",
+ category:"Geeska Afrika",
+ summary:"Maxaa ka dhigaya Geeska Afrika meel muhiimad siyaasadeed iyo dhaqaale leh?",
+ content:"Geeska Afrika wuxuu ku yaallaa meel istaraatiiji ah oo isku xirta qaaradaha Afrika, Aasiya iyo waddooyinka ganacsiga caalamka.\\n\\nBadda Cas, Gacanka Cadmeed iyo marin-biyoodka Bab al-Mandab waxay gobolka siinayaan muhiimad gaar ah.",
+ image:"https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900",
+ date:"21 November 2026"
+},
+{
+ id:4,
+ title:"Taariikhdu maxay inoo sheegtaa?",
+ category:"Taariikh",
+ summary:"Barashada taariikhdu waa dariiq lagu fahmo maanta laguna diyaariyo berri.",
+ content:"Taariikhdu waa xusuusta bulshooyinka. Waxay inoo sheegtaa guulihii, khaladaadkii, isbeddelladii iyo dhacdooyinkii qaabeeyey nolosheenna.\\n\\nQof aan taariikhdiisa aqoon wuxuu lumin karaa casharro muhiim u ah mustaqbalkiisa.",
+ image:"https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=900",
+ date:"21 November 2026"
+},
+{
+ id:5,
+ title:"Awoodda fikirka madaxbannaan",
+ category:"Garaadka Bulshada",
+ summary:"Maxaa muhiim ka dhigaya in qofku awood u yeesho inuu si madax-bannaan u fikiro?",
+ content:"Fikirka madaxbannaan waa awoodda qofku u leeyahay inuu xogta baaro, su'aalo weydiiyo, caddeymo qiimeeyo, kana fogaado inuu wax kasta iska aqbalo.",
+ image:"https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=900",
+ date:"21 November 2026"
+},
+{
+ id:6,
+ title:"Dunida iyo isbeddellada siyaasadeed",
+ category:"Caalamka",
+ summary:"Fahamka isbeddellada siyaasadeed ee caalamku wuxuu inaga caawinayaa aragtida mustaqbalka.",
+ content:"Siyaasadda caalamku waxay saamayn ku leedahay dhaqaalaha, amniga iyo xiriirka dalalka. Fahamkeedu wuxuu u baahan yahay in la eego danaha dalalka, awoodda iyo isbeddellada taagan.",
+ image:"https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=900",
+ date:"21 November 2026"
+}
+];
+
+// Isku dar maqaallada tusaalaha ah iyo kuwa la daabacay
+function getArticles(){
+ return [...articles,...defaultArticles];
+}
+
+// Soo bandhig maqaallada
+function renderArticles(){
+ const grid=document.getElementById("articleGrid");
+ const search=document.getElementById("searchInput").value.toLowerCase();
+
+ const list=getArticles().filter(a=>{
+  const categoryMatch=selectedCategory==="Dhammaan" || a.category===selectedCategory;
+  const searchMatch=(a.title+" "+a.summary+" "+a.category).toLowerCase().includes(search);
+  return categoryMatch && searchMatch;
+ });
+
+ grid.innerHTML="";
+
+ if(!list.length){
+  grid.innerHTML='<div class="empty">Wax maqaal ah lama helin.</div>';
+  return;
+ }
+
+ list.forEach(a=>{
+  const card=document.createElement("article");
+  card.className="card";
+
+  const img=document.createElement("img");
+  img.className="card-img";
+  img.src=a.image || "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900";
+  img.alt=a.title;
+  img.onerror=()=>img.src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900";
+
+  const body=document.createElement("div");
+  body.className="card-body";
+
+  const cat=document.createElement("span");
+  cat.className="category";
+  cat.textContent=a.category;
+
+  const title=document.createElement("h3");
+  title.textContent=a.title;
+
+  const summary=document.createElement("p");
+  summary.textContent=a.summary;
+
+  const meta=document.createElement("div");
+  meta.className="meta";
+  meta.textContent=a.date;
+
+  const link=document.createElement("span");
+  link.className="read-more";
+  link.textContent="Akhri maqaalka →";
+  link.onclick=()=>openArticle(a.id);
+
+  body.append(cat,title,summary,meta,link);
+  card.append(img,body);
+  grid.appendChild(card);
+ });
+}
+
+// Maqaalka muuqda
+function renderFeatured(){
+ const a=getArticles()[0];
+ if(!a)return;
+
+ const box=document.getElementById("featured");
+ box.innerHTML=`
+ <div class="featured">
+ <img src="${safeImage(a.image)}" alt="Maqaalka muuqda">
+ <div class="featured-text">
+ <span class="category">${escapeHTML(a.category)}</span>
+ <h2>${escapeHTML(a.title)}</h2>
+ <p>${escapeHTML(a.summary)}</p>
+ <div class="meta">${escapeHTML(a.date)}</div>
+ <span class="read-more" onclick="openArticle(${a.id})">Akhri maqaalka →</span>
+ </div>
+ </div>`;
+}
+
+function safeImage(url){
+ const value=String(url||"");
+ if(/^https:\/\/[^\s"'<>]+$/i.test(value))return value;
+ return "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900";
+}
+
+function escapeHTML(value){
+ return String(value??"").replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
+}
+
+// Fur maqaal
+function openArticle(id){
+ const a=getArticles().find(x=>x.id===id);
+ if(!a)return;
+
+ document.getElementById("homePage").style.display="none";
+ document.getElementById("adminPage").style.display="none";
+ document.getElementById("articlePage").style.display="block";
+
+ const detail=document.getElementById("articleDetail");
+ detail.innerHTML=`
+ <span class="category">${escapeHTML(a.category)}</span>
+ <h1>${escapeHTML(a.title)}</h1>
+ <div class="meta">${escapeHTML(a.date)}</div>
+ <img src="${safeImage(a.image)}" alt="Sawirka maqaalka">
+ <div class="article-body">${escapeHTML(a.content)}</div>
+ <hr style="margin:30px 0;border:0;border-top:1px solid #ddd">
+ <p style="color:#0755a4;font-weight:bold">KACAAN – Fikirka ayaa dhisa bulshada.</p>`;
+ window.scrollTo(0,0);
+}
+
+function home(){
+ document.getElementById("homePage").style.display="block";
+ document.getElementById("articlePage").style.display="none";
+ document.getElementById("adminPage").style.display="none";
+ document.getElementById("navigation").classList.remove("show");
+ window.scrollTo(0,0);
+}
+
+// Kala shaandhee qaybaha
+function filterCategory(category,element){
+ selectedCategory=category;
+ document.querySelectorAll(".cat").forEach(c=>c.classList.remove("active"));
+ element.classList.add("active");
+ renderArticles();
+ document.getElementById("articles").scrollIntoView();
+}
+
+// Menu
+function toggleMenu(){
+ document.getElementById("navigation").classList.toggle("show");
+}
+
+// Admin
+function showAdmin(){
+ document.getElementById("homePage").style.display="none";
+ document.getElementById("articlePage").style.display="none";
+ document.getElementById("adminPage").style.display="block";
+ document.getElementById("navigation").classList.remove("show");
+ window.scrollTo(0,0);
+}
+
+function login(){
+ const pass=document.getElementById("adminPassword").value;
+
+ if(pass===ADMIN_PASSWORD){
+  document.getElementById("loginArea").classList.add("hidden");
+  document.getElementById("editorArea").classList.remove("hidden");
+  renderManageList();
+ }else{
+  alert("Password-ku waa khalad!");
+ }
+}
+
+function logout(){
+ document.getElementById("loginArea").classList.remove("hidden");
+ document.getElementById("editorArea").classList.add("hidden");
+ document.getElementById("adminPassword").value="";
+}
+
+function publishArticle(){
+ const title=document.getElementById("postTitle").value.trim();
+ const category=document.getElementById("postCategory").value;
+ const image=document.getElementById("postImage").value.trim();
+ const summary=document.getElementById("postSummary").value.trim();
+ const content=document.getElementById("postContent").value.trim();
+
+ if(!title || !summary || !content){
+  alert("Fadlan buuxi cinwaanka, hordhaca iyo qoraalka maqaalka.");
+  return;
+ }
+
+ if(image && !/^https:\/\/[^\s"'<>]+$/i.test(image)){
+  alert("Sawirku waa inuu noqdaa link HTTPS sax ah.");
+  return;
+ }
+
+ const article={
+  id:Date.now(),
+  title,category,
+  image:image || "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900",
+  summary,content,
+  date:new Date().toLocaleDateString("en-GB")
+ };
+
+ articles.unshift(article);
+ saveArticles();
+
+ document.getElementById("postTitle").value="";
+ document.getElementById("postImage").value="";
+ document.getElementById("postSummary").value="";
+ document.getElementById("postContent").value="";
+
+ renderArticles();
+ renderFeatured();
+ renderManageList();
+
+ alert("Maqaalka si guul leh ayaa loo daabacay!");
+}
+
+function saveArticles(){
+ localStorage.setItem("kacaan_articles",JSON.stringify(articles));
+}
+
+// Maamul maqaallada
+function renderManageList(){
+ const box=document.getElementById("manageList");
+ box.innerHTML="";
+
+ if(!articles.length){
+  box.textContent="Weli ma jiraan maqaallo aad adigu daabacday.";
+  return;
+ }
+
+ articles.forEach(a=>{
+  const item=document.createElement("div");
+  item.style.cssText="padding:12px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;gap:10px;align-items:center";
+
+  const name=document.createElement("span");
+  name.textContent=a.title;
+
+  const del=document.createElement("button");
+  del.className="btn danger";
+  del.textContent="Tirtir";
+  del.onclick=()=>deleteArticle(a.id);
+
+  item.append(name,del);
+  box.appendChild(item);
+ });
+}
+
+function deleteArticle(id){
+ if(!confirm("Ma hubtaa inaad tirtirayso maqaalkan?"))return;
+ articles=articles.filter(a=>a.id!==id);
+ saveArticles();
+ renderArticles();
+ renderFeatured();
+ renderManageList();
+ alert("Maqaalka waa la tirtiray.");
+}
+
+// Bilowga website-ka
+renderArticles();
+renderFeatured();
+
+</script>
+</body>
+</html>
