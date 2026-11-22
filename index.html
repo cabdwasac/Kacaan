@@ -750,7 +750,7 @@ function logout(){
  document.getElementById("adminPassword").value="";
 }
 
-function publishArticle(){
+async function publishArticle(){
  const title=document.getElementById("postTitle").value.trim();
  const category=document.getElementById("postCategory").value;
  const image=document.getElementById("postImage").value.trim();
@@ -768,27 +768,38 @@ function publishArticle(){
  }
 
  const article={
-  id:Date.now(),
-  title,category,
+  title,
+  category,
   image:image || "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900",
-  summary,content,
-  date:new Date().toLocaleDateString("en-GB")
+  summary,
+  content,
+  date:new Date().toLocaleDateString("en-GB"),
+  createdAt:firebase.firestore.FieldValue.serverTimestamp()
  };
 
- articles.unshift(article);
- saveArticles();
+ try {
+  const docRef=await db.collection("articles").add(article);
 
- document.getElementById("postTitle").value="";
- document.getElementById("postImage").value="";
- document.getElementById("postSummary").value="";
- document.getElementById("postContent").value="";
+  article.id=docRef.id;
+  articles.unshift(article);
 
- renderArticles();
- renderFeatured();
- renderManageList();
+  document.getElementById("postTitle").value="";
+  document.getElementById("postImage").value="";
+  document.getElementById("postSummary").value="";
+  document.getElementById("postContent").value="";
 
- alert("Maqaalka si guul leh ayaa loo daabacay!");
+  renderArticles();
+  renderFeatured();
+  renderManageList();
+
+  alert("Maqaalka si guul leh ayaa Firebase loogu kaydiyey!");
+
+ } catch(error) {
+  console.error(error);
+  alert("Maqaalka lama kaydin. Hubi internetka iyo gelitaanka Admin-ka.");
+ }
 }
+
 
 function saveArticles(){
  localStorage.setItem("kacaan_articles",JSON.stringify(articles));
