@@ -519,13 +519,10 @@ const db = firebase.firestore();
 <script>
 // KACAAN WEBSITE JAVASCRIPT
 
-const ADMIN_PASSWORD = "Kacaan2026";
-
-// Kaydinta maqaallada
-let articles = JSON.parse(localStorage.getItem("kacaan_articles") || "[]");
+// Kaydinta maqaallada Firebase
+let articles = [];
 
 let selectedCategory = "Dhammaan";
-
 // Maqaallo tusaale ah
 const defaultArticles = [
 {
