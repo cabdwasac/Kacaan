@@ -674,8 +674,9 @@ function escapeHTML(value){
 }
 
 // Fur maqaal
+
 function openArticle(id){
- const a=getArticles().find(x=>x.id===id);
+ const a=getArticles().find(x=>String(x.id)===String(id));
  if(!a)return;
 
  document.getElementById("homePage").style.display="none";
@@ -687,12 +688,18 @@ function openArticle(id){
  <span class="category">${escapeHTML(a.category)}</span>
  <h1>${escapeHTML(a.title)}</h1>
  <div class="meta">${escapeHTML(a.date)}</div>
- <img src="${safeImage(a.image)}" alt="Sawirka maqaalka">
+ <img src="${safeImage(a.image)}" alt="${escapeHTML(a.title)}">
  <div class="article-body">${escapeHTML(a.content)}</div>
  <hr style="margin:30px 0;border:0;border-top:1px solid #ddd">
  <p style="color:#0755a4;font-weight:bold">KACAAN – Fikirka ayaa dhisa bulshada.</p>`;
+
+ const url=new URL(window.location.href);
+ url.searchParams.set("article",a.id);
+ history.pushState({articleId:a.id},"",url);
+
  window.scrollTo(0,0);
 }
+
 
 function home(){
  document.getElementById("homePage").style.display="block";
