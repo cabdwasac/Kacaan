@@ -721,21 +721,26 @@ function showAdmin(){
  document.getElementById("homePage").style.display="none";
  document.getElementById("articlePage").style.display="none";
  document.getElementById("adminPage").style.display="block";
- document.getElementById("navigation").classList.remove("show");
- window.scrollTo(0,0);
+ document.getElementById("navigation").classList.remove("
+async function login(){
+  const email = document.getElementById("adminEmail").value.trim();
+  const pass = document.getElementById("adminPassword").value;
+
+  try {
+    await auth.signInWithEmailAndPassword(email, pass);
+
+    document.getElementById("loginArea").classList.add("hidden");
+    document.getElementById("editorArea").classList.remove("hidden");
+
+    renderManageList();
+    alert("Ku soo dhowow maamulka KACAAN!");
+
+  } catch(error) {
+    alert("Gelitaanka wuu fashilmay. Hubi email-ka iyo password-ka.");
+    console.error(error);
+  }
 }
 
-function login(){
- const pass=document.getElementById("adminPassword").value;
-
- if(pass===ADMIN_PASSWORD){
-  document.getElementById("loginArea").classList.add("hidden");
-  document.getElementById("editorArea").classList.remove("hidden");
-  renderManageList();
- }else{
-  alert("Password-ku waa khalad!");
- }
-}
 
 function logout(){
  document.getElementById("loginArea").classList.remove("hidden");
