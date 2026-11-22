@@ -721,7 +721,9 @@ function showAdmin(){
  document.getElementById("homePage").style.display="none";
  document.getElementById("articlePage").style.display="none";
  document.getElementById("adminPage").style.display="block";
- document.getElementById("navigation").classList.remove("
+ document.getElementById("navigation").classList.remove("show");
+ window.scrollTo(0,0);
+ }
 async function login(){
   const email = document.getElementById("adminEmail").value.trim();
   const pass = document.getElementById("adminPassword").value;
