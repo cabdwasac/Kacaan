@@ -873,13 +873,19 @@ async function loadArticles(){
     id: doc.id,
     ...doc.data()
   }));
-
   renderArticles();
   renderFeatured();
 
+  const articleId = new URLSearchParams(window.location.search).get("article");
+
+  if(articleId){
+    openArticle(articleId);
+  }
+
   if(auth.currentUser){
     renderManageList();
-  }
+ }
+  
 
  } catch(error) {
   console.error("Firebase loading error:", error);
