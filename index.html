@@ -806,6 +806,7 @@ function saveArticles(){
 }
 
 // Maamul maqaallada
+
 function renderManageList(){
  const box=document.getElementById("manageList");
  box.innerHTML="";
@@ -832,15 +833,26 @@ function renderManageList(){
  });
 }
 
-function deleteArticle(id){
+async function deleteArticle(id){
  if(!confirm("Ma hubtaa inaad tirtirayso maqaalkan?"))return;
- articles=articles.filter(a=>a.id!==id);
- saveArticles();
- renderArticles();
- renderFeatured();
- renderManageList();
- alert("Maqaalka waa la tirtiray.");
+
+ try {
+  await db.collection("articles").doc(String(id)).delete();
+
+  articles=articles.filter(a=>String(a.id)!==String(id));
+
+  renderArticles();
+  renderFeatured();
+  renderManageList();
+
+  alert("Maqaalka si guul leh ayaa Firebase looga tirtiray!");
+
+ } catch(error) {
+  console.error(error);
+  alert("Maqaalka lama tirtirin. Hubi internetka iyo Admin-ka.");
+ }
 }
+
 
 // Bilowga website-ka
 renderArticles();
