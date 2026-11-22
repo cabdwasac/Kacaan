@@ -855,8 +855,34 @@ async function deleteArticle(id){
 
 
 // Bilowga website-ka
+// Ka soo akhri maqaallada Firebase
+async function loadArticles(){
+ try {
+  const snapshot = await db.collection("articles")
+    .orderBy("createdAt", "desc")
+    .get();
+
+  articles = snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  }));
+
+  renderArticles();
+  renderFeatured();
+
+  if(auth.currentUser){
+    renderManageList();
+  }
+
+ } catch(error) {
+  console.error("Firebase loading error:", error);
+ }
+}
+
+// Bilowga website-ka
 renderArticles();
 renderFeatured();
+loadArticles();
 
 </script>
 </body>
