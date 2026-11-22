@@ -496,6 +496,26 @@ footer h3{margin-bottom:12px}
  </div>
 </footer>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCX4PshvT8lDPFiH7tHDkn6HGS-IYkU9-A",
+  authDomain: "kacaan-d7dc9.firebaseapp.com",
+  projectId: "kacaan-d7dc9",
+  storageBucket: "kacaan-d7dc9.firebasestorage.app",
+  messagingSenderId: "1059231573505",
+  appId: "1:1059231573505:web:fb45a7e43ef6a4cf130200"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const db = firebase.firestore();
+</script>
+
 <script>
 // KACAAN WEBSITE JAVASCRIPT
 
