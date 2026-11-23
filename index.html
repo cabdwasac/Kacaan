@@ -767,22 +767,34 @@ function openArticle(id){
 
 
 
+
 function home(){
  document.getElementById("homePage").style.display="block";
  document.getElementById("articlePage").style.display="none";
  document.getElementById("adminPage").style.display="none";
  document.getElementById("navigation").classList.remove("show");
+
+ // Dib u celi cinwaanka website-ka
+ document.title="KACAAN | Aqoon iyo Falanqayn";
+
+ // Dib u celi sharaxaadda guud
+ const description="KACAAN waa madal aqooneed oo soo bandhigta warar, falanqayn siyaasadeed, taariikh, waxbarasho iyo fikrado bulshada kobciya.";
+
+ let meta=document.querySelector('meta[name="description"]');
+
+ if(meta){
+  meta.setAttribute("content",description);
+ }
+
+ // Ka saar canonical-ka maqaalka
+ const canonical=document.querySelector('link[rel="canonical"]');
+ if(canonical){
+  canonical.remove();
+ }
+
  window.scrollTo(0,0);
 }
 
-// Kala shaandhee qaybaha
-function filterCategory(category,element){
- selectedCategory=category;
- document.querySelectorAll(".cat").forEach(c=>c.classList.remove("active"));
- element.classList.add("active");
- renderArticles();
- document.getElementById("articles").scrollIntoView();
-}
 
 // Menu
 function toggleMenu(){
