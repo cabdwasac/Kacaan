@@ -724,7 +724,7 @@ function openArticle(id){
  history.pushState({articleId:a.id},"",url);
 
  // Cinwaanka maqaalka
- document.title=a.title+" | KACAAN";
+ document.title=a.title+" | KACAAN |  ";
 
  // Sharaxaadda maqaalka
  const description=(a.summary || a.content || "")
@@ -747,12 +747,12 @@ function openArticle(id){
 
  setMeta("name","description",description);
  setMeta("property","og:type","article");
- setMeta("property","og:title",a.title+" | KACAAN");
+ setMeta("property","og:title",a.title+" | KACAAN  | ");
  setMeta("property","og:description",description);
  setMeta("property","og:image",safeImage(a.image));
  setMeta("property","og:url",url.href);
  setMeta("name","twitter:card","summary_large_image");
- setMeta("name","twitter:title",a.title+" | KACAAN");
+ setMeta("name","twitter:title",a.title+" | KACAAN  |  ");
  setMeta("name","twitter:description",description);
  setMeta("name","twitter:image",safeImage(a.image));
 
