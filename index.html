@@ -765,6 +765,43 @@ function openArticle(id){
   document.head.appendChild(canonical);
  }
 
+ // Schema.org Article - SEO
+ const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": a.title,
+  "description": description,
+  "image": safeImage(a.image),
+  "datePublished": a.date || "",
+  "author": {
+   "@type": "Organization",
+   "name": "KACAAN"
+  },
+  "publisher": {
+   "@type": "Organization",
+   "name": "KACAAN",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://cabdwasac.github.io/Kacaan/og-image.jpg"
+   }
+  },
+  "mainEntityOfPage": {
+   "@type": "WebPage",
+   "@id": url.href
+  }
+ };
+
+ let schemaTag = document.getElementById("articleSchema");
+
+ if(!schemaTag){
+  schemaTag = document.createElement("script");
+  schemaTag.type = "application/ld+json";
+  schemaTag.id = "articleSchema";
+  document.head.appendChild(schemaTag);
+ }
+
+ schemaTag.textContent = JSON.stringify(schemaData);
+
  canonical.href=url.href;
 
  window.scrollTo(0,0);
@@ -805,7 +842,12 @@ function home(){
  setMeta("name","twitter:card","summary_large_image");
  setMeta("name","twitter:title","KACAAN | Aqoon iyo Falanqayn");
  setMeta("name","twitter:description",description);
+// Ka saar Schema.org-ka maqaalka
+const schemaTag=document.getElementById("articleSchema");
 
+if(schemaTag){
+ schemaTag.remove();
+ }
  // Ka saar canonical-ka maqaalka
  const canonical=document.querySelector('link[rel="canonical"]');
  if(canonical){
