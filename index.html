@@ -771,8 +771,6 @@ function openArticle(id){
 }
 
 
-
-
 function home(){
  document.getElementById("homePage").style.display="block";
  document.getElementById("articlePage").style.display="none";
@@ -782,14 +780,31 @@ function home(){
  // Dib u celi cinwaanka website-ka
  document.title="KACAAN | Aqoon iyo Falanqayn";
 
- // Dib u celi sharaxaadda guud
+ // Sharaxaadda guud
  const description="KACAAN waa madal aqooneed oo soo bandhigta warar, falanqayn siyaasadeed, taariikh, waxbarasho iyo fikrado bulshada kobciya.";
 
- let meta=document.querySelector('meta[name="description"]');
+ function setMeta(attribute,name,value){
+  let tag=document.querySelector(
+   `meta[${attribute}="${name}"]`
+  );
 
- if(meta){
-  meta.setAttribute("content",description);
+  if(!tag){
+   tag=document.createElement("meta");
+   tag.setAttribute(attribute,name);
+   document.head.appendChild(tag);
+  }
+
+  tag.setAttribute("content",value);
  }
+
+ setMeta("name","description",description);
+ setMeta("property","og:type","website");
+ setMeta("property","og:title","KACAAN | Aqoon iyo Falanqayn");
+ setMeta("property","og:description",description);
+ setMeta("property","og:url",window.location.origin);
+ setMeta("name","twitter:card","summary_large_image");
+ setMeta("name","twitter:title","KACAAN | Aqoon iyo Falanqayn");
+ setMeta("name","twitter:description",description);
 
  // Ka saar canonical-ka maqaalka
  const canonical=document.querySelector('link[rel="canonical"]');
@@ -799,6 +814,7 @@ function home(){
 
  window.scrollTo(0,0);
 }
+
 
 
 // Menu
