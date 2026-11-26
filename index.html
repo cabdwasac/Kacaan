@@ -194,6 +194,199 @@ section{padding:48px 0}
  border-radius:14px;
  overflow:hidden;
  border:1px solid #e3eaf2;
+<head>
+ <meta name="google-site-verification" content="q_9tefr3XzyQwWAXP7smHqf2YD_J2amLxxaHiGiotGI" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082b59">
+
+<meta name="description" content="KACAAN waa madal aqooneed oo soo bandhigta warar, falanqayn siyaasadeed, taariikh, waxbarasho iyo fikrado bulshada kobciya.">
+
+<meta name="keywords" content="KACAAN, warar Soomaali, aqoon, falanqayn, taariikh, waxbarasho, Soomaaliya, Itoobiya, Geeska Afrika">
+
+<meta name="author" content="KACAAN">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KACAAN">
+<meta property="og:title" content="KACAAN | Aqoon iyo Falanqayn">
+<meta property="og:description" content="Madal aqooneed, warar, falanqayn siyaasadeed, taariikh iyo korinta garaadka bulshada.">
+<meta property="og:url" content="https://cabdwasac.github.io/Kacaan/">
+<meta property="og:image" content="https://cabdwasac.github.io/Kacaan/og-image.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KACAAN | Aqoon iyo Falanqayn">
+<meta name="twitter:description" content="Madal aqooneed, warar iyo falanqayn.">
+<meta name="twitter:image" content="https://cabdwasac.github.io/Kacaan/og-image.jpg">
+
+<title>KACAAN | Aqoon iyo Falanqayn</title>
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --blue:#0755a4;
+ --dark:#082b59;
+ --light:#edf5ff;
+ --gold:#e6ae45;
+ --text:#17263b;
+ --muted:#69788b;
+ --white:#fff;
+}
+body{
+ font-family:Arial,sans-serif;
+ background:#f5f7fb;
+ color:var(--text);
+ line-height:1.7;
+}
+button,input,textarea,select{font:inherit}
+a{text-decoration:none;color:inherit}
+.container{width:92%;max-width:1150px;margin:auto}
+
+/* HEADER */
+header{
+ background:var(--dark);
+ color:white;
+ position:sticky;
+ top:0;
+ z-index:100;
+ box-shadow:0 3px 15px #001a3730;
+}
+.topbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:15px 0;
+}
+.logo{
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+.logo-icon{
+ width:46px;
+ height:46px;
+ overflow:hidden;
+ border-radius:12px;
+}
+
+.logo-icon img{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ display:block;
+}
+.logo h1{font-size:27px;letter-spacing:3px}
+.logo small{display:block;font-size:10px;color:#b9d7f8;letter-spacing:1px}
+nav{display:flex;gap:22px;align-items:center}
+nav a{font-size:13px;color:#e3edfa}
+nav a:hover{color:var(--gold)}
+.menu-btn{
+ display:none;
+ background:#17477c;
+ border:0;color:white;
+ padding:8px 13px;border-radius:7px;
+ font-size:20px;
+}
+
+/* HERO */
+.hero{
+ background:linear-gradient(120deg,#071e40,#0755a4);
+ color:white;
+ padding:75px 0;
+ position:relative;
+ overflow:hidden;
+}
+.hero:after{
+ content:"K";
+ position:absolute;
+ right:7%;
+ top:-90px;
+ font-size:350px;
+ font-weight:bold;
+ color:#ffffff0a;
+}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-tag{color:#f0bd60;font-size:13px;letter-spacing:2px;font-weight:bold}
+.hero h2{font-size:42px;line-height:1.3;margin:15px 0}
+.hero p{color:#d4e5fa;font-size:17px;max-width:650px}
+.hero-buttons{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
+.btn{
+ border:0;padding:12px 22px;
+ border-radius:7px;cursor:pointer;
+ font-weight:bold;
+}
+.btn-gold{background:var(--gold);color:#102b4b}
+.btn-outline{border:1px solid #ffffff80;color:white;background:transparent}
+
+/* TICKER */
+.ticker{
+ background:#fff;
+ border-bottom:1px solid #e3eaf2;
+ padding:12px 0;
+ font-size:13px;
+}
+.ticker strong{color:var(--blue);margin-right:12px}
+
+/* SECTIONS */
+section{padding:48px 0}
+.section-heading{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:23px;
+ gap:10px;
+}
+.section-heading h2{font-size:24px;color:var(--dark)}
+.section-heading span{color:var(--blue);font-size:13px;font-weight:bold}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:22px;
+}
+.card{
+ background:white;
+ border-radius:12px;
+ overflow:hidden;
+ border:1px solid #e6ebf2;
+ transition:.25s;
+ box-shadow:0 3px 12px #001b3710;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 25px #001b3720}
+.card-img{
+ width:100%;height:190px;
+ object-fit:cover;
+ background:#dce9f8;
+}
+.card-body{padding:18px}
+.category{
+ display:inline-block;
+ color:#0755a4;
+ background:#e8f2ff;
+ padding:4px 10px;
+ border-radius:30px;
+ font-size:11px;
+ font-weight:bold;
+}
+.card h3{font-size:18px;line-height:1.5;margin:12px 0}
+.card p{font-size:13px;color:var(--muted)}
+.meta{font-size:11px;color:#8794a4;margin-top:14px}
+.read-more{
+ display:inline-block;
+ margin-top:13px;
+ color:var(--blue);
+ font-weight:bold;
+ font-size:13px;
+ cursor:pointer;
+}
+
+/* FEATURED */
+.featured{
+ display:grid;
+ grid-template-columns:1.3fr 1fr;
+ background:white;
+ border-radius:14px;
+ overflow:hidden;
+ border:1px solid #e3eaf2;
 }
 .featured img{width:100%;height:100%;min-height:300px;object-fit:cover}
 .featured-text{padding:30px}
@@ -290,7 +483,296 @@ footer h3{margin-bottom:12px}
  .grid{grid-template-columns:1fr}
 }
 </style>
-</head>
+</head><head>
+ <meta name="google-site-verification" content="q_9tefr3XzyQwWAXP7smHqf2YD_J2amLxxaHiGiotGI" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082b59">
+
+<meta name="description" content="KACAAN waa madal aqooneed oo soo bandhigta warar, falanqayn siyaasadeed, taariikh, waxbarasho iyo fikrado bulshada kobciya.">
+
+<meta name="keywords" content="KACAAN, warar Soomaali, aqoon, falanqayn, taariikh, waxbarasho, Soomaaliya, Itoobiya, Geeska Afrika">
+
+<meta name="author" content="KACAAN">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KACAAN">
+<meta property="og:title" content="KACAAN | Aqoon iyo Falanqayn">
+<meta property="og:description" content="Madal aqooneed, warar, falanqayn siyaasadeed, taariikh iyo korinta garaadka bulshada.">
+<meta property="og:url" content="https://cabdwasac.github.io/Kacaan/">
+<meta property="og:image" content="https://cabdwasac.github.io/Kacaan/og-image.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KACAAN | Aqoon iyo Falanqayn">
+<meta name="twitter:description" content="Madal aqooneed, warar iyo falanqayn.">
+<meta name="twitter:image" content="https://cabdwasac.github.io/Kacaan/og-image.jpg">
+
+<title>KACAAN | Aqoon iyo Falanqayn</title>
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --blue:#0755a4;
+ --dark:#082b59;
+ --light:#edf5ff;
+ --gold:#e6ae45;
+ --text:#17263b;
+ --muted:#69788b;
+ --white:#fff;
+}
+body{
+ font-family:Arial,sans-serif;
+ background:#f5f7fb;
+ color:var(--text);
+ line-height:1.7;
+}
+button,input,textarea,select{font:inherit}
+a{text-decoration:none;color:inherit}
+.container{width:92%;max-width:1150px;margin:auto}
+
+/* HEADER */
+header{
+ background:var(--dark);
+ color:white;
+ position:sticky;
+ top:0;
+ z-index:100;
+ box-shadow:0 3px 15px #001a3730;
+}
+.topbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:15px 0;
+}
+.logo{
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+.logo-icon{
+ width:46px;
+ height:46px;
+ overflow:hidden;
+ border-radius:12px;
+}
+
+.logo-icon img{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ display:block;
+}
+.logo h1{font-size:27px;letter-spacing:3px}
+.logo small{display:block;font-size:10px;color:#b9d7f8;letter-spacing:1px}
+nav{display:flex;gap:22px;align-items:center}
+nav a{font-size:13px;color:#e3edfa}
+nav a:hover{color:var(--gold)}
+.menu-btn{
+ display:none;
+ background:#17477c;
+ border:0;color:white;
+ padding:8px 13px;border-radius:7px;
+ font-size:20px;
+}
+
+/* HERO */
+.hero{
+ background:linear-gradient(120deg,#071e40,#0755a4);
+ color:white;
+ padding:75px 0;
+ position:relative;
+ overflow:hidden;
+}
+.hero:after{
+ content:"K";
+ position:absolute;
+ right:7%;
+ top:-90px;
+ font-size:350px;
+ font-weight:bold;
+ color:#ffffff0a;
+}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-tag{color:#f0bd60;font-size:13px;letter-spacing:2px;font-weight:bold}
+.hero h2{font-size:42px;line-height:1.3;margin:15px 0}
+.hero p{color:#d4e5fa;font-size:17px;max-width:650px}
+.hero-buttons{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
+.btn{
+ border:0;padding:12px 22px;
+ border-radius:7px;cursor:pointer;
+ font-weight:bold;
+}
+.btn-gold{background:var(--gold);color:#102b4b}
+.btn-outline{border:1px solid #ffffff80;color:white;background:transparent}
+
+/* TICKER */
+.ticker{
+ background:#fff;
+ border-bottom:1px solid #e3eaf2;
+ padding:12px 0;
+ font-size:13px;
+}
+.ticker strong{color:var(--blue);margin-right:12px}
+
+/* SECTIONS */
+section{padding:48px 0}
+.section-heading{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:23px;
+ gap:10px;
+}
+.section-heading h2{font-size:24px;color:var(--dark)}
+.section-heading span{color:var(--blue);font-size:13px;font-weight:bold}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:22px;
+}
+.card{
+ background:white;
+ border-radius:12px;
+ overflow:hidden;
+ border:1px solid #e6ebf2;
+ transition:.25s;
+ box-shadow:0 3px 12px #001b3710;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 25px #001b3720}
+.card-img{
+ width:100%;height:190px;
+ object-fit:cover;
+ background:#dce9f8;
+}
+.card-body{padding:18px}
+.category{
+ display:inline-block;
+ color:#0755a4;
+ background:#e8f2ff;
+ padding:4px 10px;
+ border-radius:30px;
+ font-size:11px;
+ font-weight:bold;
+}
+.card h3{font-size:18px;line-height:1.5;margin:12px 0}
+.card p{font-size:13px;color:var(--muted)}
+.meta{font-size:11px;color:#8794a4;margin-top:14px}
+.read-more{
+ display:inline-block;
+ margin-top:13px;
+ color:var(--blue);
+ font-weight:bold;
+ font-size:13px;
+ cursor:pointer;
+}
+
+/* FEATURED */
+.featured{
+ display:grid;
+ grid-template-columns:1.3fr 1fr;
+ background:white;
+ border-radius:14px;
+ overflow:hidden;
+ border:1px solid #e3eaf2;
+}
+.featured img{width:100%;height:100%;min-height:300px;object-fit:cover}
+.featured-text{padding:30px}
+.featured-text h2{font-size:27px;margin:14px 0}
+.featured-text p{color:var(--muted)}
+
+/* SEARCH */
+.search-box{display:flex;gap:8px;max-width:450px}
+.search-box input{
+ width:100%;padding:12px;
+ border:1px solid #d7e0eb;
+ border-radius:7px;outline:none;
+}
+.search-box button{background:var(--blue);color:white}
+
+/* CATEGORIES */
+.categories{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:12px;
+}
+.cat{
+ background:white;
+ padding:20px 10px;
+ border-radius:10px;
+ text-align:center;
+ border:1px solid #e4eaf2;
+ cursor:pointer;
+ color:var(--dark);
+ font-weight:bold;
+ font-size:13px;
+}
+.cat:hover,.cat.active{background:var(--blue);color:white}
+
+/* ARTICLE */
+#articlePage{display:none;background:white;min-height:70vh}
+.article-content{max-width:800px;margin:auto;padding:40px 0}
+.article-content h1{font-size:35px;line-height:1.4;color:var(--dark);margin:15px 0}
+.article-content img{width:100%;max-height:430px;object-fit:cover;border-radius:12px;margin:20px 0}
+.article-body{font-size:17px;line-height:2;white-space:pre-wrap}
+.back-btn{color:var(--blue);cursor:pointer;font-weight:bold}
+
+/* ADMIN */
+#adminPage{display:none}
+.admin-box{
+ max-width:750px;margin:auto;
+ background:white;padding:25px;
+ border-radius:12px;border:1px solid #e2e8f0;
+}
+.admin-box h2{color:var(--dark);margin-bottom:20px}
+.field{margin-bottom:15px}
+.field label{display:block;font-weight:bold;font-size:13px;margin-bottom:6px}
+.field input,.field textarea,.field select{
+ width:100%;padding:12px;
+ border:1px solid #d7e0eb;border-radius:7px;
+ outline:none;
+}
+.field textarea{min-height:180px;resize:vertical}
+.admin-btn{background:var(--blue);color:white;width:100%}
+.danger{background:#bd3030;color:white}
+
+/* FOOTER */
+footer{background:#071e40;color:white;padding:40px 0 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+footer p,footer a{font-size:13px;color:#b9cce4}
+footer h3{margin-bottom:12px}
+.footer-bottom{border-top:1px solid #ffffff20;margin-top:25px;padding-top:17px;text-align:center;color:#9db5d2;font-size:12px}
+
+.empty{text-align:center;padding:35px;color:var(--muted);grid-column:1/-1}
+.hidden{display:none!important}
+
+@media(max-width:750px){
+ .menu-btn{display:block}
+ nav{
+ display:none;position:absolute;top:75px;left:0;
+ width:100%;background:#082b59;
+ padding:20px;flex-direction:column;align-items:flex-start;
+ }
+ nav.show{display:flex}
+ .hero{padding:55px 0}
+ .hero h2{font-size:31px}
+ .grid{grid-template-columns:1fr 1fr;gap:12px}
+ .card-img{height:140px}
+ .card-body{padding:12px}
+ .card h3{font-size:15px}
+ .featured{grid-template-columns:1fr}
+ .featured img{height:220px}
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .footer-grid{grid-template-columns:1fr}
+ .article-content{padding:25px 0}
+ .article-content h1{font-size:27px}
+}
+@media(max-width:390px){
+ .grid{grid-template-columns:1fr}
+}
+</style>
+ </head>
 
 <body>
 
