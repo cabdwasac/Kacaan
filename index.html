@@ -724,38 +724,46 @@ function openArticle(id){
  history.pushState({articleId:a.id},"",url);
 
  // Cinwaanka maqaalka
- document.title=a.title+" | KACAAN  ";
+ // Cinwaanka maqaalka
+document.title = a.title + " | KACAAN";
 
- // Sharaxaadda maqaalka
- const description=(a.summary || a.content || "")
-   .replace(/\s+/g," ")
-   .substring(0,160);
+// Sharaxaadda maqaalka
+const description = (
+ a.summary || a.content || "Akhri maqaal cusub oo KACAAN ah."
+)
+ .replace(/\s+/g, " ")
+ .trim()
+ .substring(0, 160);
 
- function setMeta(attribute,name,value){
-  let tag=document.querySelector(
-   `meta[${attribute}="${name}"]`
-  );
+function setMeta(attribute, name, value) {
+ let tag = document.querySelector(
+  `meta[${attribute}="${name}"]`
+ );
 
-  if(!tag){
-   tag=document.createElement("meta");
-   tag.setAttribute(attribute,name);
-   document.head.appendChild(tag);
-  }
-
-  tag.setAttribute("content",value);
+ if (!tag) {
+  tag = document.createElement("meta");
+  tag.setAttribute(attribute, name);
+  document.head.appendChild(tag);
  }
 
- setMeta("name","description",description);
- setMeta("property","og:type","article");
- setMeta("property","og:title",a.title+" | KACAAN   ");
- setMeta("property","og:description",description);
- setMeta("property","og:image",safeImage(a.image));
- setMeta("property","og:url",url.href);
- setMeta("name","twitter:card","summary_large_image");
- setMeta("name","twitter:title",a.title+" | KACAAN    ");
- setMeta("name","twitter:description",description);
- setMeta("name","twitter:image",safeImage(a.image));
+ tag.setAttribute("content", value);
+}
 
+// SEO
+setMeta("name", "description", description);
+
+// Open Graph
+setMeta("property", "og:type", "article");
+setMeta("property", "og:title", a.title + " | KACAAN");
+setMeta("property", "og:description", description);
+setMeta("property", "og:image", safeImage(a.image));
+setMeta("property", "og:url", url.href);
+
+// Twitter
+setMeta("name", "twitter:card", "summary_large_image");
+setMeta("name", "twitter:title", a.title + " | KACAAN");
+setMeta("name", "twitter:description", description);
+setMeta("name", "twitter:image", safeImage(a.image));
  // Cinwaanka rasmiga ah ee maqaalka
  let canonical=document.querySelector('link[rel="canonical"]');
 
